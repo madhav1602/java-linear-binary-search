@@ -2,17 +2,23 @@ import java.util.Scanner;
 
 public class PeakElement {
     public static int peakElement(int[] arr){
-        int l=0,r=arr.length-1;
-        while(l<r){
-            int m=(l+r)/2;
-            if(arr[m]>arr[m-1] && arr[m]>arr[m+1]){
-                return arr[m];
+        int left=1;
+        int right=arr.length-2;
+
+        if(arr[0]>arr[1]) return 0;
+        if(arr[arr.length-1]>arr[arr.length-2]) return arr.length-1;
+
+        while(left<=right){
+            int mid=(left+right)/2;
+
+            if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]){
+                return mid;
             }
-            else if(arr[m-1]>arr[m]){
-                r=m-1;
+            else if(arr[mid] > arr[mid+1]){
+                right=mid-1;
             }
-            else{
-                l=m+1;
+            else{   // arr[mid] > arr[mid-1]
+                left=mid+1;
             }
         }
         return -1;
