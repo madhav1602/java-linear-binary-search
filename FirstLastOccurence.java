@@ -1,10 +1,14 @@
 
 public class FirstLastOccurence {
     public int first(int[] nums,int target){
+
         int index=-1;
-        int l=0,h=nums.length-1;
+        int l=0;
+        int h=nums.length-1;
+
         while(l<=h){
             int m=l+((h-l)/2);
+
             if(nums[m]>target){
                 h=m-1;
             }
@@ -18,11 +22,15 @@ public class FirstLastOccurence {
         }
         return index;
     }
+
     public int last(int[] nums,int target){
         int index=-1;
-        int l=0,h=nums.length-1;
+        int l=0 ;
+        int h=nums.length-1;
+
         while(l<=h){
             int m=l+((h-l)/2);
+
             if(nums[m]>target){
                 h=m-1;
             }
